@@ -1,6 +1,7 @@
 package com.ithalosena.projetoorange2.model;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,6 +32,37 @@ public class Usuario {
     public Usuario() {
 
     }
+
+    
+	public Usuario(String nome, String email, String CPF, LocalDate dataNascimento) {
+		super();
+		this.nome = nome;
+		this.email = email;
+		this.CPF = CPF;
+		this.dataNascimento = dataNascimento;
+	}
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(CPF, dataNascimento, email, id, nome);
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Usuario other = (Usuario) obj;
+		return Objects.equals(CPF, other.CPF) && Objects.equals(dataNascimento, other.dataNascimento)
+				&& Objects.equals(email, other.email) && Objects.equals(id, other.id)
+				&& Objects.equals(nome, other.nome);
+	}
+
 
 	public Long getId() {
 		return id;

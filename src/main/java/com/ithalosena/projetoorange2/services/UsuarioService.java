@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ithalosena.projetoorange2.dto.MensagemRespostaDTO;
 import com.ithalosena.projetoorange2.model.Usuario;
 import com.ithalosena.projetoorange2.model.repositories.UsuarioRepository;
 
@@ -34,3 +35,5 @@ public class UsuarioService {
         String mensagem = "Usuário deletado com Sucesso";
         return new MensagemRespostaDTO(mensagem);
     }
+    
+}
